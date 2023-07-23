@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fitness.ExerciseView"
+             x:DataType="local:ExerciseViewModel"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+             xmlns:local="clr-namespace:Fitness">
+    <ContentView.Content>
+        <Grid BindingContext="{local:ExerciseViewModel}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="auto"/>
+            
+            </Grid.RowDefinitions>
+            <Label Text="{Binding Weight, StringFormat='{}{0:0.##}'}" 
+                   FontSize="Large" 
+                   Grid.Row="0" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="7"
+                   HorizontalTextAlignment="Center" 
+                   VerticalTextAlignment="Center"/>
+            <sliders:SfSlider 
+                Minimum="5"
+                Maximum="100"
+                ShowLabels="True"
+                ShowTicks="True"
+                Interval="5"
+                MinorTicksPerInterval="1"
+                StepSize="2.5"
+                Value="{Binding Weight}"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="7">
+            </sliders:SfSlider>
+            <editors:SfNumericEntry HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    SmallChange="1"
+                                    Minimum="0"
+                                    Maximum="25"
+                                    Value="{Binding Rep1}"
+                                    CustomFormat = "00"
+                                    LargeChange="2"
+                                    ShowClearButton="False"
+                                    UpDownPlacementMode="Inline"
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="3"
+                                    Grid.Column="0"/>
+            <chip:SfChip Grid.Row="3"
+                         Grid.Column="3"
+                         Text="Go">
+                
+            </chip:SfChip>
+            <progressBar:SfCircularProgressBar Grid.Row="3"
+                                               Grid.Column ="4"
+                                               SegmentCount="4"
+                                               Maximum="120"
+                                               Progress="30"/>
+
+            <editors:SfNumericEntry HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    SmallChange="1"
+                                    Minimum="0"
+                                    Maximum="25"
+                                    Value="{Binding Rep2}"
+                                    CustomFormat = "00"
+                                    LargeChange="2"
+                                    ShowClearButton="False"
+                                    UpDownPlacementMode="Inline"
+                                    Grid.Row="4"
+                                    Grid.ColumnSpan="3"
+                                    Grid.Column="0"/>
+            <chip:SfChip Grid.Row="4"
+                         Grid.Column="3"
+                         Text="Go">
+
+            </chip:SfChip>
+            <progressBar:SfCircularProgressBar Grid.Row="4"
+                                               Grid.Column ="4"
+                                               SegmentCount="4"
+                                               Maximum="120"
+                                               Progress="50"/>
+
+            <editors:SfNumericEntry HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    SmallChange="1"
+                                    Minimum="0"
+                                    Maximum="25"
+                                    Value="{Binding Rep3}"
+                                    CustomFormat = "00"
+                                    LargeChange="2"
+                                    ShowClearButton="False"
+                                    UpDownPlacementMode="Inline"
+                                    Grid.Row="5"
+                                    Grid.ColumnSpan="3"
+                                    Grid.Column="0"/>
+            <chip:SfChip Grid.Row="5"
+                         Grid.Column="3"
+                         Text="Go">
+
+            </chip:SfChip>
+            <progressBar:SfCircularProgressBar Grid.Row="5"
+                                               Grid.Column ="4"
+                                               SegmentCount="4"
+                                               Maximum="120"
+                                               Progress="60"/>
+            <Button Grid.Row="7"
+                         Grid.Column="1"
+                         Grid.ColumnSpan="5"
+                         Text="Next"
+                         Command="{Binding Path=NextCommand, Source={RelativeSource AncestorType={x:Type local:MainViewModel}}}"
+                         
+                         >
+                
+            </Button>
+
+        </Grid>
+    </ContentView.Content>
+    
+</ContentView>
