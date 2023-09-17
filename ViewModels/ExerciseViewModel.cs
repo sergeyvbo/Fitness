@@ -1,17 +1,30 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+using Fitness.Models;
 
-namespace Fitness
+namespace Fitness.ViewModels
 {
     public class ExerciseViewModel: ObservableObject
     {
-        
-		private double _weight = 35;
+        public ExerciseViewModel()
+        {
+            
+        }
+
+        public ExerciseViewModel(Exercise exercise)
+        {
+            Name = exercise.Name;
+            Interval = exercise.DefaultInterval;
+            Exercise = exercise;
+        }
+
+        private string _name;
+        private double _weight = 35;
         private int _rep1 = 10;
         private int _rep2 = 10;
         private int _rep3 = 10;
         private Exercise _exercise;
         private TimeSpan _interval;
+        private bool _isExpanded;
 		
         public double Weight
 		{
@@ -42,6 +55,18 @@ namespace Fitness
         {
             get { return _interval; }
             set { SetProperty(ref _interval, value); }
+        }
+
+        public bool IsExpanded
+        {
+            get { return _isExpanded; }
+            set { SetProperty(ref _isExpanded, value); }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
         }
     }
 }

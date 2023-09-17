@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fitness.Views.LoginPage"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:sfPopup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+             Title="Master of the GYM"
+             x:Name="loginPage">
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="10*,2*,2*,*, 20*">
+            <dataForm:SfDataForm 
+                x:Name="loginForm"
+                DataObject="{Binding LoginFormModel}"
+                LayoutType="TextInputLayout"
+                Grid.Row="0"
+                >
+                    
+            </dataForm:SfDataForm>
+            <Grid Grid.Row="1" ColumnDefinitions="0.5*,0.5*" Padding="12,0,0,0" VerticalOptions="Start">
+                <HorizontalStackLayout VerticalOptions="Center" Padding="10,0,0,0" Grid.Row="1">
+                    <CheckBox />
+                    <Label Text="Remember me" FontSize="12" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <Label Text="Forgot password?" Grid.Row="2" Grid.Column="2" HorizontalTextAlignment="Center" Padding="10,0,0,0" FontSize="12" VerticalOptions="Center" />
+            </Grid>
+            
+                <Button Text="LOGIN" x:Name="loginButton" HeightRequest="40" VerticalOptions="End"
+                    HorizontalOptions="Fill" Margin="20,0,20,0" CornerRadius="10"
+                    Padding="0" FontAttributes="Bold"
+                    Grid.Row="3" />
+            <Label Grid.Row="4" Padding="0,12,0,0" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="14">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Don't have an account?   " />
+                            <Span Text="Sign Up" TextDecorations="Underline" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            
+        </Grid>
+            
+                
+            
+            
+        
+    </ContentPage.Content>
+    
+    
+    <!--<ContentPage.Content>
+        <Grid RowDefinitions="5*,auto,1*,auto,1*,auto,1*,auto,40*" ColumnDefinitions="10*,80*,10*">
+            <inputLayout:SfTextInputLayout Grid.Row="1" Grid.Column="1" Hint="E-mail">
+                <Entry />
+            </inputLayout:SfTextInputLayout >
+            <inputLayout:SfTextInputLayout Grid.Row="3" Grid.Column="1" Hint="Password" 
+                                EnablePasswordVisibilityToggle="true">
+                <Entry Text="1234"/>
+            </inputLayout:SfTextInputLayout>
+            <buttons:SfButton Grid.Row="5" Grid.Column="1" Text="Login"/>
+            <buttons:SfButton Grid.Row="7" Grid.Column="1" Style="" Text="Register"/>
+
+            <sfPopup:SfPopup x:Name="loginPopup"/>
+            <sfPopup:SfPopup x:Name="registerPopup"/>
+        </Grid>
+        
+    </ContentPage.Content>-->
+
+</ContentPage>

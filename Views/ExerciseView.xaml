@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fitness.ExerciseView"
+             x:Class="Fitness.Views.ExerciseView"
              x:DataType="local:ExerciseViewModel"
              xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
-             xmlns:local="clr-namespace:Fitness">
+             xmlns:local="clr-namespace:Fitness.ViewModels">
     <ContentView.Content>
         <Grid BindingContext="{local:ExerciseViewModel}">
             <Grid.ColumnDefinitions>

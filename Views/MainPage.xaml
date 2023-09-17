@@ -5,27 +5,58 @@
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Accordion;assembly=Syncfusion.Maui.Expander"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:local="clr-namespace:Fitness"
-             x:Class="Fitness.MainPage">
-    <ContentPage.BindingContext>
-        <local:MainViewModel />
-    </ContentPage.BindingContext>
+             xmlns:local="clr-namespace:Fitness.ViewModels"
+             xmlns:views="clr-namespace:Fitness.Views"
+             x:Class="Fitness.Views.MainPage">
+
 
     <ContentPage.Content>
         <tabView:SfTabView x:Name="tabView" TabBarPlacement="Bottom">
             <tabView:SfTabView.Items>
                 <tabView:SfTabItem Header="Workout">
                     <tabView:SfTabItem.Content>
-                        <VerticalStackLayout>
-                            <editors:SfComboBox 
-                                ItemsSource="{Binding WorkoutTypes}" 
-                                SelectedItem="{Binding SelectedWorkoutType}"
+                        <Grid>
+                            <tabView:SfTabView x:Name="day" TabBarPlacement="Top">
+                                <tabView:SfTabView.Items>
+                                    <tabView:SfTabItem Header="Select the workout">
+                                        <tabView:SfTabItem.Content>
+                                            <VerticalStackLayout>
+                                                <ListView ItemsSource="{Binding WorkoutDays}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <ViewCell>
+                                                                <Button Text="{Binding Name}"  Padding="5"/>
+                                                            </ViewCell>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                            </VerticalStackLayout>
+                                        </tabView:SfTabItem.Content>
+                                    </tabView:SfTabItem>
+                                </tabView:SfTabView.Items>
+                            </tabView:SfTabView>
+                        </Grid>
+                        <!--<VerticalStackLayout>
+                            <Picker ItemsSource="{Binding WorkoutDays}"
+                                    ItemDisplayBinding="{Binding Name}"
+                                    SelectedItem="{Binding SelectedWorkoutDay}"       
+                                    Title="Select Workout Day">
+                                <Picker.Behaviors>
+                                    <toolkit:EventToCommandBehavior 
+                                        EventName="SelectedIndexChanged"
+                                        Command="{Binding WorkoutDaySelectionChangedCommand}" 
+                                    />
+                                </Picker.Behaviors>
+                            </Picker>
+                            --><!--<editors:SfComboBox 
+                                ItemsSource="{Binding WorkoutDays}" 
                                 Placeholder="Select a workout"
+                                SelectedItem="{Binding SelectedWorkoutDay}"
                                 DisplayMemberPath="Name">
                                 <editors:SfComboBox.Behaviors>
                                     <toolkit:EventToCommandBehavior Command="{Binding WorkoutTypeSelectionChangedCommand}"  EventName="SelectionChanged"/>
                                 </editors:SfComboBox.Behaviors>
-                            </editors:SfComboBox>
+                            </editors:SfComboBox>--><!--
                             <syncfusion:SfAccordion BindableLayout.ItemsSource="{Binding Exercises}">
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>
@@ -40,13 +71,13 @@
                                                 </Grid>
                                             </syncfusion:AccordionItem.Header>
                                             <syncfusion:AccordionItem.Content>
-                                                <local:ExerciseView Exercise="{Binding .}"></local:ExerciseView>
+                                                <views:ExerciseView BindingContext="{Binding .}"></views:ExerciseView>
                                             </syncfusion:AccordionItem.Content>
                                         </syncfusion:AccordionItem>
                                     </DataTemplate>
                                 </BindableLayout.ItemTemplate>
                             </syncfusion:SfAccordion>
-                        </VerticalStackLayout>
+                        </VerticalStackLayout>-->
                     </tabView:SfTabItem.Content>
                 </tabView:SfTabItem>
                 <tabView:SfTabItem Header="Reports">

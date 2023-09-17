@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell x:Class="Fitness.Views.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:Fitness"
+       xmlns:views="clr-namespace:Fitness.Views">
+
+
+    <ShellContent
+        x:Name = "shellContent"
+        Title="Master of the GYM">
+    </ShellContent>
+    
+    <!--FlyoutBehavior="Flyout">-->
+
+    <!-- Flyout (Navigation Drawer) -->
+    <!--<Shell.FlyoutHeader>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Master of the GYM" FontSize="24" Margin="20" VerticalOptions="Center" Grid.Row="0"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Grid.Row="1">
+                <ImageButton Source="profile_picture.png" WidthRequest="40" HeightRequest="40" Margin="10"/>
+                <ImageButton Source="sign_in.png" WidthRequest="40" HeightRequest="40" Margin="10"/>
+                <ImageButton Source="sign_up.png" WidthRequest="40" HeightRequest="40" Margin="10"/>
+                <ImageButton Source="log_out.png" WidthRequest="40" HeightRequest="40" Margin="10"/>
+            </StackLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    --><!-- Tabs --><!--
+    <TabBar>
+        <Tab Title="Workout">
+            <ShellContent ContentTemplate="{DataTemplate views:WorkoutList}" />
+        </Tab>
+        <Tab Title="Reports">
+            <ShellContent ContentTemplate="{DataTemplate views:ReportsPage}" />
+        </Tab>
+        <Tab Title="Settings">
+            <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" />
+        </Tab>
+    </TabBar>-->
+
+</Shell>
+    
+    
+<!--<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Fitness.Views.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Fitness.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        x:Name = "shellContent"
+        Title="Master of the GYM">
+        
+    </ShellContent>
+        
+
+</Shell>-->
+
+    

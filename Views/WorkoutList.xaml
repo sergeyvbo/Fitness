@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sfListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="Fitness.Views.WorkoutList"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="Select a workout">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <sfListView:SfListView x:Name="listView" 
+                               ItemsSource="{Binding WorkoutDays}">
+            <sfListView:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="{Binding Name}" FontAttributes="Bold" FontSize="Large"/>
+                        <chip:SfChip Grid.Column="1" Text="Start">
+                            <chip:SfChip.Behaviors>
+                                <toolkit:EventToCommandBehavior EventName="Clicked" Command="{Binding BindingContext.StartWorkoutCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}" />
+                            </chip:SfChip.Behaviors>
+                        </chip:SfChip>
+                    </Grid>
+                    
+                        
+                    
+                </DataTemplate>
+            </sfListView:SfListView.ItemTemplate>
+        </sfListView:SfListView>
+    </VerticalStackLayout>
+</ContentPage>
